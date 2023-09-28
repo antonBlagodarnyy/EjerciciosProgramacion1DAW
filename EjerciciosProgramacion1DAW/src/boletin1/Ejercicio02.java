@@ -8,8 +8,8 @@ public class Ejercicio02 {
 		 * separadas.
 		 */
 
-		System.out.println("Anton Blagodarnyy");
-		System.out.println("Avda/Doña Francisquita");
-		System.out.println("697143616");
+		System.out.print("Anton Blagodarnyy");
+		System.out.print("Avda/Doña Francisquita");
+		System.out.print("697143616");
 	}
 }
