@@ -1,4 +1,5 @@
 package boletin3;
+import java.util.Scanner;
 
 public class Ejercicio5 {
 
@@ -19,7 +20,25 @@ public class Ejercicio5 {
 	Declara las variables necesarias y asigna los valores que consideres convenientes (importe de ventas, número de
 	km realizados, días de desplazamiento).
 */
+		Scanner s = new Scanner(System.in);
+		System.out.println("Introduzca el sueldo fijo:");
+		double sueldoFijo = s.nextDouble();
 		
+		sueldoFijo -= 0.18*sueldoFijo;//aplicamos la retencion IRPF
+		
+		System.out.println("¿Cual es el importe de ventas?");
+		sueldoFijo += 0.05*s.nextDouble();//aplicamos el importe de ventas
+		
+		System.out.println("¿Cual es el kilometraje?");//aplicamos el kilometraje
+		sueldoFijo += s.nextDouble();
+		
+		System.out.println("¿Cuantos dias se ha desplazado?");//aplicamos los desplazamientos
+		sueldoFijo += 60*s.nextInt();
+		
+		sueldoFijo -= 150;//restamos la retencion de la ss
+		
+		
+		System.out.println("Sueldo liquido: "+sueldoFijo);
 	}
 
 }
