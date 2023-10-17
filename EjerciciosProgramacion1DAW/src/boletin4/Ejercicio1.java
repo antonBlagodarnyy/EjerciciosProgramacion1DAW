@@ -9,8 +9,9 @@ public class Ejercicio1 {
 		*/
 		Scanner s = new Scanner(System.in);
 		System.out.println("¿Que dia de la semana es?");
-		String dia = s.nextLine();
-		if (dia == "lunes") {
+		String dia = s.nextLine();//pedimos el dia de la semana
+		
+		if (dia == "lunes") {//atribuimos a cada dia una frase
 			System.out.println("Toca base de datos");
 		} else if (dia == "martes") {
 			System.out.println("Toca programacion");

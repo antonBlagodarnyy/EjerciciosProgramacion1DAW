@@ -17,7 +17,7 @@ public class Ejercicio1 {
 		y = s.nextInt();
 		System.out.println("Introduzca el tercer numero:");
 		z = s.nextInt();
-		int media = (x+y+z)/3;
+		double media =(double)( (x+y+z)/3);
 		System.out.println("La media de los tres numeros es "+media);
 		
 	}
