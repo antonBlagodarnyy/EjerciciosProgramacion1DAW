@@ -5,37 +5,35 @@ public class boletin5 {
 
 
 
-		/*System.out.println("Ejercicio1:"+ejercicio1());
+		//System.out.println("Ejercicio1:"+ejercicio1());
 
-		System.out.println("Ejercicio2: "+ejercicio2());
+		//System.out.println("Ejercicio2: "+ejercicio2());
 
-		System.out.println("Ejercicio3: "+ejercicio3());
+		//System.out.println("Ejercicio3: "+ejercicio3());
 
-		System.out.println("Ejercicio4:"+ejercicio4());
+		//System.out.println("Ejercicio4:"+ejercicio4());
 
-		System.out.println("Ejercicio5:"+ejercicio5());
+		//System.out.println("Ejercicio5:"+ejercicio5());
 
-		System.out.println("Ejercicio6: "+ejercicio6()+"\n");
+		//System.out.println("Ejercicio6: "+ejercicio6()+"\n");
 
-		System.out.println("Ejercicio7:");
-		System.out.println(ejercicio7());
+		//System.out.println("Ejercicio7:"); System.out.println(ejercicio7());
 
-		System.out.println("Ejercicio8:");
-		System.out.println(ejercicio8());
+		//System.out.println("Ejercicio8:"); System.out.println(ejercicio8());
 
-		System.out.println(ejercicio9());
+		//System.out.println(ejercicio9());
 
-		System.out.println(ejercicio10());
+		//System.out.println(ejercicio10());
 
-		System.out.println(ejercicio11());
+		//System.out.println(ejercicio11());
 
-		System.out.println(ejercicio12());
+		//System.out.println(ejercicio12());
 		
-		System.out.println(ejercicio13());
+		//System.out.println(ejercicio13());
 		
-		System.out.println(ejercicio14());
+		//System.out.println(ejercicio14());
 		
-		System.out.println(ejercicio15());*/
+		//System.out.println(ejercicio15());
 		
 		//System.out.println(ejercicio16());
 		
@@ -43,7 +41,9 @@ public class boletin5 {
 		
 		//System.out.println(ejercicio18());
 		
-		System.out.println(ejercicio19());
+		//System.out.println(ejercicio19());
+		
+		System.out.println(ejercicio20());
 	}
 
 	public static String ejercicio1(){
@@ -521,8 +521,100 @@ Visualizar el resultado de sumar los 5 números.*/
 			}
 			return respuesta;
 		}
-		
-	}
+
+	public static String ejercicio20() {		
+	/*Programa que permita el siguiente juego: Un primer jugador teclea un
+número entre 1 y 50 (debe comprobarse que sea correcto). El segundo
+jugador intentará adivinarlo.
+Para ello tendrá como máximo 5 intentos y el programa irá sacando
+mensajes indicando si el número a adivinar es mayor o menor al número
+introducido por el jugador 2. Al final se indicará si el jugador ganó o
+perdió. Si se adivina el número antes de que finalicen los 5 intentos el
+programa finaliza.*/
+	//PARAMETROS
+	Scanner sInt = new Scanner (System.in);
+	Scanner sString = new Scanner (System.in);
+	
+	 int numeroSecreto = 0, numeroIntroducido = 0, intentos = 5;
+	 String resultado = "", jugador1 = "", jugador2 = "";
+
+	 //pedimos el nombre de los jugadores:
+	 	System.out.println("Jugador 1: Introduzca su nombre");
+	 jugador1 += sString.nextLine();
+	 System.out.println("Jugador 2: Introduzca su nombre");
+	 jugador2 += sString.nextLine();
+	 
+	 do {//bucle del juego completo
+		 
+			 System.out.println( jugador1+" introduce un numero secreto.");
+			 numeroSecreto = sInt.nextInt();
+			 
+			 for (int i = 1; i < 50; i++) {
+				 System.out.print("\n");//ocultamos el numero secreto
+			 }
+			 
+			 System.out.println( jugador2+" adivina el numero secreto");
+			 
+			 while (intentos > 0) {//juega el jugador 2
+				 
+				 numeroIntroducido = sInt.nextInt();
+				 
+				 if (numeroSecreto == numeroIntroducido) {//en caso de que haya adivinado el numero
+					 resultado = "Ha ganado "+jugador2+"!";
+					 break;//salimos del bucle de los intentos
+				 } else {//si ha fallado
+					 intentos --;//restamos un intento
+					 
+					 if(numeroSecreto>numeroIntroducido && intentos>0){//imprimimos una pista y los intentos restantes
+						 System.out.println("Numero introducido incorrecto, el numero secreto es mayor. Le quedan "+ intentos +" intentos.\nIntentelo de nuevo.");
+					 } else if (intentos >0 ) {
+						 System.out.println("Numero introducido incorrecto, el numero secreto es menor. Le quedan "+ intentos +" intentos.\nIntentelo de nuevo.");
+					 } else {//en caso de que no le queden intentos
+						 System.out.println("Ha perdido, no le quedan intentos.");
+					 }
+				 } 
+			 }//aqui termina el bucle de los intentos 
+			 
+			 if (numeroSecreto==numeroIntroducido) {
+				 break;//salimos del bucle del juego si ha ganado
+			 }
+			 
+			 intentos = 5;//si continua el juego, reestablecemos los intentos
+			 
+		 System.out.println(jugador2+" introduce un numero secreto.");
+		 numeroSecreto = sInt.nextInt();
+		 for (int i = 1; i < 50; i++) {
+			 System.out.print("\n");//ocultamos el numero secreto
+		 }
+		 
+		 System.out.println( jugador1+" adivina el numero secreto");
+		 while (intentos > 0) {//juega el jugador1
+			 numeroIntroducido = sInt.nextInt();
+			 if (numeroSecreto == numeroIntroducido) {
+				 resultado += "Ha ganado "+jugador1+"!";
+				 break;//salimos del bucle de los intentos  si ha ganado
+			 } else {
+				 intentos --;
+				 if(numeroSecreto>numeroIntroducido && intentos>0){//imprimimos una pista y los intentos restantes
+					 System.out.println("Numero introducido incorrecto, el numero secreto es mayor. Le quedan "+ intentos +" intentos.\nIntentelo de nuevo.");
+				 } else if (intentos >0 ) {
+					 System.out.println("Numero introducido incorrecto, el numero secreto es menor. Le quedan "+ intentos +" intentos.\nIntentelo de nuevo.");
+				 } else {
+					 System.out.println("Ha perdido, no le quedan intentos.");
+				 }
+			 } 
+		 } 
+		 intentos = 5;//reestablecemos los intentos una vez pierda el jugador 1
+		 
+	 }while (numeroSecreto!=numeroIntroducido) ;//si no ha ganado ningun jugador, reiniciamos el bucle, si ha ganado el jugador 1, salimos del bucle del juego
+	 return resultado;
+	 }
+}
+
+	 
+	 
+
+
 
 
 
