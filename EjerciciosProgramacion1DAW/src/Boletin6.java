@@ -40,11 +40,11 @@ public class Boletin6 {
 			System.out.println("¿Qué calculo desea hacer?"
 					+ "1.-Area."
 					+ "2.-Volumen.");
-			calculo = s.nextInt();
+			calculo = s.nextInt();	
 			
 				
 			}
-	}
+	
 	
 	public static void escribir(){
 		System.out.println("Hola");
@@ -103,7 +103,6 @@ public class Boletin6 {
 		return resultado;
 	}
 
-	
 }
 
 
