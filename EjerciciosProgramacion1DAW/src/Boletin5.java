@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class boletin5 {
+public class Boletin5 {
 	public static void main(String[] args) {
 
 
@@ -39,11 +39,11 @@ public class boletin5 {
 		
 		//System.out.println(ejercicio17());
 		
-		//System.out.println(ejercicio18());
+		//ejercicio18();
 		
 		//System.out.println(ejercicio19());
 		
-		System.out.println(ejercicio20());
+		//System.out.println(ejercicio20());
 	}
 
 	public static String ejercicio1(){
@@ -376,7 +376,7 @@ cuál es el mayor.*/
 		4 259,2
 		El ordenador se depreció en 4 años.*/
 		//PARAMETROS
-		int precio = 5000;
+		int precio = 2000;
 		int contador = 0;
 		String resultado = "PRECIO ADQUISICIÓN: "+ precio+"\n"
 				+ "AÑOS VALOR_ORDENADOR\n";
@@ -401,9 +401,9 @@ cuál es el mayor.*/
 		String añoBisiesto = "Años bisiestos: ";
 		int año = 2000;
 		
-		while (año < 2100) {
+		while (año <= 2100) {
 			if ( año % 4 == 0 && año % 100 != 0 || año % 400 == 0) {
-				añoBisiesto += año + " "; 
+				añoBisiesto += año + " \n"; 
 			}
 			año++;
 		} return añoBisiesto;
@@ -427,6 +427,7 @@ que 7 solo es divisible por 1 y por 7  es primo.*/
 	for (int i = 2 ; i < n ; i++) {//recorremos todos los numeros desde 2 hasta n-1
 		if (n % i ==0) {//si n es divisible entre cualquiera de esos numeros
 			primo = false;//ya no es primo
+			break;
 		}
 	}
 	if (primo) {//concatenamos la respuesta y la devolvemos
@@ -437,11 +438,11 @@ que 7 solo es divisible por 1 y por 7  es primo.*/
 	return respuesta;
 	}
 
-	public static String ejercicio18() {
+	public static void ejercicio18() {
 		/*Realiza un programa que pinte una pirámide por pantalla. La altura de la
 		pirámide se debe pedir por teclado. El carácter con el que se pinta la
 		pirámide también se debe pedir por teclado.*/
-	
+	/*
 		//PARAMETROS 
 		Scanner sChar = new Scanner(System.in);
 		Scanner sInt = new Scanner(System.in);
@@ -466,7 +467,12 @@ que 7 solo es divisible por 1 y por 7  es primo.*/
 			anchuraPiramide++;
 			resultado += "\n";//agregamos un salto de linea
 		}
-	
+		
+		for (int i = anchuraPiramide ; i>0; i--) {//pintamos el pico
+			resultado+= caracter;
+		}
+		resultado += "\n";
+		
 	//pintamos el lado inverso
 		for (int i = 0 ; i < alturaPiramide ; i++) {//recorremos la altura
 			for (int u = anchuraPiramide ; u > 1 ; u--) {//pintamos el caracter
@@ -477,7 +483,97 @@ que 7 solo es divisible por 1 y por 7  es primo.*/
 			resultado += "\n";//agregamos un salto de linea
 		}
 			return resultado;
-		}
+		}*/
+
+
+
+// Realiza un programa que pinte una pirámide por pantalla. La altura de la
+
+// pirámide se debe pedir por teclado. El carácter con el que se pinta la
+
+// pirámide también se debe pedir por teclado
+
+Scanner teclado= new Scanner(System.in);//Declaro los Scanners que voy a usar
+
+Scanner teclado1= new Scanner(System.in);
+
+//Declaro las variables
+
+String caracter;
+
+int altura,alturaAux;
+
+//Controlo la entrada de datos en este caso es la altura de la pirámide
+
+do {
+
+System.out.println("¿Qué altura quieres que tenga la pirámide?");//pido que se introduzca la altura de la pirámide
+
+altura=teclado1.nextInt();//recojo la altura y la almaceno en la variable
+
+if(altura<2) {//Si la altura es inferior a 2 el mensaje se muestra
+
+System.out.println("ERROR.La altura debe ser mínimo de 2");
+
+}
+
+}while(altura<2);//Si la altura es inferior a 2 el bucle se repite
+
+alturaAux=altura;//asigno el valor de altura a alturaAux
+
+do {
+
+System.out.println("¿Con qué carácter quieres rellenar la pirámide?");//Pregunto con qué caracter se quiere rellenar la pirámide
+
+caracter=teclado.nextLine();//Recojo el caracter y lo almaceno en la variable caracter
+
+if (caracter.length()>1||caracter.equals(" ")||caracter.isEmpty()) {//Aqui compruebo con length()que solo se introduce un caracter.
+
+//También, compruebo que ese caracter no sea un espacio en blanco
+
+//Y tambíen compruebo que se introduzca algun caracter y no se deje en blanco con isEmpty()
+
+System.out.println("ERROR. Debes introducir un caracter; No puedes introducir más de un carácter ni un espacio en blanco.");
+
+
+
+}
+
+}while(caracter.length()>1||caracter.equals(" ")||caracter.isEmpty());//Si la cadena que se introduce mide más de 1 caracter o el carácter es un espacio en blanco o el carácter está vacío el bucle se vuelve a ejecutar.
+
+for(int i=1 ;i<=altura;i++) {//Este bucle se usa para crear las filas de la pirámide
+
+String cadena="";
+
+for (int j = alturaAux; j >0 ; j--) {//Este bucle se usa para rellenar las filas de la pirámide
+
+if (i==j) {
+
+cadena += " "+caracter;//Mientras se cumpla la condición la cadena se rellena con un espacio en blanco y un carácter
+
+}else if(i<j){
+
+cadena += " ";//Mientras se cumpla la condición la cadena se rellena con espacios en blanco
+
+}else if(i>j) {
+
+cadena +=" "+caracter;//cuando se cumpla la condición la cadena se rellena con el carácter elegido más un espacio
+
+}
+
+}
+
+
+
+System.out.println(cadena);//Mostramos la cadena que correspondería a la pirámide
+
+}
+
+teclado.close();
+
+teclado1.close();
+
+}
 
 	public static String ejercicio19() {
 		/*Programa que pida por teclado:
@@ -493,7 +589,7 @@ Visualizar el resultado de sumar los 5 números.*/
 		//PARAMETROS
 		//@input:
 			Scanner s = new Scanner (System.in);
-			int num, incremento;
+			int num, incremento, suma = 0;
 		//@output:
 			String respuesta = "";
 			
@@ -516,9 +612,12 @@ Visualizar el resultado de sumar los 5 números.*/
 			
 			for (int i = 0 ; i < 4 ; i++) {//loop con 5 iteraciones
 				num += incremento;//sumamos incremento
+				suma += num;
 				respuesta += " "+num;//concatenamos el numero sumado
 				
 			}
+			respuesta += "\n"
+					+ "la suma de los numeros es:" +suma;
 			return respuesta;
 		}
 
