@@ -8,9 +8,9 @@ public class JavierCorreccion {
 
 		//ejercicio1();
 		//calculadora();
-		fractorial();
+		//fractorial();
 	//fibonacci();
-		//rectangulo();
+		rectangulo();
 
 	}
 
@@ -160,7 +160,7 @@ public static void fibonacci() {
    	
 		numero1+=incremento;
 		
-		incremento++;
+		
 		contador++;
 		
 		
